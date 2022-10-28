@@ -1,0 +1,21 @@
+name: "Setup Reliably CLI"
+description: "Installs a specific version of Reliably"
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  reliably-version:
+    description: "Which Reliably version to install"
+    required: false
+    default: 0.1.0
+runs:
+  using: "composite"
+  steps:
+      - name: Configure Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Install Reliably CLI
+        run: pip install --prefer-binary reliably-cli==${{ inputs.reliably-version }}
+        shell: bash
