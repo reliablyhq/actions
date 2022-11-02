@@ -1,0 +1,19 @@
+# A sample workflow which checks out the code for suggestions
+# using Reliably.
+# The results are then uploaded to GitHub Security Code Scanning.
+
+name: Reliably workflow
+on: push
+
+jobs:
+  reliably:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+      - name: Run Reliably CLI
+        uses: reliablyhq/actions@v1
+        env:
+          RELIABLY_AGENT_TOKEN: ${{ secrets.RELIABLY_AGENT_TOKEN }}
+        with:
+          args: --help
