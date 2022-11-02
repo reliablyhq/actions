@@ -11,7 +11,7 @@ inputs:
   reliably-version:
     description: "Which Reliably version to install"
     required: false
-    default: 0.1.0
+    default: 0.1.6
 runs:
   using: "composite"
   steps:
@@ -36,4 +36,4 @@ runs:
 
       - name: Store Reliably version
         shell: bash
-        run: echo ::set-output name=version::"$(reliably version --short)"
+        run: echo "RELIABLY_VERSION=$(reliably version --short)" >> $GITHUB_ENV
