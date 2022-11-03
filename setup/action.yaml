@@ -40,4 +40,4 @@ runs:
       
       - name: Install Reliably CLI
         shell: bash
-        run: python -m pip install --python-version "${{ inputs.python-version }}" --implementation "cp" --prefer-binary reliably-cli==${{ inputs.reliably-version }}
+        run: python -m pip install --prefer-binary reliably-cli==${{ inputs.reliably-version }}
