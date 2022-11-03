@@ -20,29 +20,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - name: Checkout to get a copy of the Reliably CLI configuration
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Make configuration available if found in repository
-        shell: bash
-        run: |
-          CFG_PATH=${{ inputs.reliably-config-path }}
-          if [[ -f "$CFG_PATH" ]]; then
-            echo "RELIABLY_CLI_CONFIG=$CFG_PATH" >> $GITHUB_ENV
-          fi
-
-      - name: Configure Python
-        uses: actions/setup-python@v4
+      - uses: ./setup
         with:
           python-version: ${{ inputs.python-version }}
-          cache: 'pip'
-      
-      - name: Install Reliably CLI
-        shell: bash
-        run: pip install --prefer-binary reliably-cli==${{ inputs.reliably-version }}
-
-      - name: Store Reliably version
-        shell: bash
-        run: echo "RELIABLY_VERSION=$(reliably version --short)" >> $GITHUB_ENV
+          reliably-version: ${{ inputs.reliably-version }}
+          reliably-config-path: ${{ inputs.reliably-config-path }}
