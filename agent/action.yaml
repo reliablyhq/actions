@@ -1,0 +1,35 @@
+name: "Reliably Agent"
+description: "Runs the Reliably agent"
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  python-version:
+    description: "Which Python version to use (should be 3.10+)"
+    required: false
+    default: '3.10'
+  reliably-version:
+    description: "Which Reliably version to install"
+    required: false
+    default: 0.1.6
+  reliably-config-path:
+    description: "Path where to locate a Reliably configuration file"
+    required: false
+    default: .reliably.toml
+runs:
+  using: "composite"
+  steps:
+      - name: Checkout to get a copy of your Reliably CLI configuration
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: reliablyhq/actions/setup@v0
+        with:
+          python-version: ${{ inputs.python-version }}
+          reliably-version: ${{ inputs.reliably-version }}
+          reliably-config-path: ${{ inputs.reliably-config-path }}
+
+      - name: Run the Reliably Agent
+        shell: bash
+        run: reliably agent
