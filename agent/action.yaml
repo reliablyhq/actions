@@ -32,4 +32,8 @@ runs:
 
       - name: Run the Reliably Agent
         shell: bash
-        run: reliably agent
+        run: |
+          reliably agent
+
+          # give time for OTEL to be sent if declared
+          sleep 1s
