@@ -40,8 +40,10 @@ runs:
       
       - name: Install Reliably CLI
         shell: bash
-        run: pip install --prefer-binary reliably-cli==${{ inputs.reliably-version }}
-
-      - name: Store Reliably version
-        shell: bash
-        run: echo "RELIABLY_VERSION=$(reliably version --short)" >> $GITHUB_ENV
+        run: pip \
+          --disable-pip-version-check \
+          install \
+          --python-version "${{ inputs.python-version }}" \
+          --implementation "cp" \
+          --prefer-binary \
+          reliably-cli==${{ inputs.reliably-version }}
