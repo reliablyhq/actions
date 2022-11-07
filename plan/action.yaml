@@ -1,0 +1,27 @@
+name: 'Reliably Experiment Action'
+description: 'Run a Reliably Chaos Toolkit experiment'
+author: 'Reliably'
+branding:
+  icon: "check-circle"
+  color: "red"
+inputs:
+  image:
+    description: "Which Chaos Toolkit image to use"
+    required: false
+    default: 'docker.io/chaostoolkit/chaostoolkit:full'
+  experiment-url:
+    description: "Chaos Toolkit experiment URL"
+    required: true
+  reliably-agent-token:
+    description: "Reliably agent authentication token"
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://${{ inputs.image }}'
+  args:
+    - run
+    - --rollback-strategy
+    - always
+    - ${{ inputs.experiment-url }}
+  env:
+    CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
