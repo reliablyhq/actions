@@ -15,6 +15,9 @@ inputs:
     description: "The python version to use to run the Chaos Toolkit"
     required: false
     default: "3.10"
+  environment-name:
+    description: "Name of a GitHub environment to populate secrets from"
+    required: false
 runs:
   using: "composite"
   steps:
@@ -48,12 +51,3 @@ runs:
         opentelemetry-exporter-otlp-proto-http \
         opentelemetry-propagator-b3 \
         opentelemetry-semantic-conventions
-    
-    - name: Run Reliably Experiment
-      shell: bash
-      run: |
-        env
-        echo "Running experiment ${{ inputs.reliably-experiment-url }}"
-        chaos run --rollback-strategy=always ${{ inputs.reliably-experiment-url }}
-      env:
-        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
