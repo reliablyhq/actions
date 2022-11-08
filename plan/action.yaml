@@ -5,23 +5,53 @@ branding:
   icon: "check-circle"
   color: "red"
 inputs:
-  image:
-    description: "Which Chaos Toolkit image to use"
-    required: false
-    default: 'docker.io/chaostoolkit/chaostoolkit:full'
   experiment-url:
     description: "Chaos Toolkit experiment URL"
     required: true
   reliably-agent-token:
     description: "Reliably agent authentication token"
     required: true
+  reliably-experiment-url:
+    description: "Reliably experiment url"
+    required: true
 runs:
-  using: 'docker'
-  image: 'docker://${{ inputs.image }}'
-  args:
-    - run
-    - --rollback-strategy
-    - always
-    - ${{ inputs.experiment-url }}
-  env:
-    CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
+  using: "composite"
+  steps:
+    - name: Configure Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: 'pip'
+    
+    - name: Install Chaos Toolkit
+      shell: bash
+      run: python -m pip install -q --prefer-binary chaostoolkit \
+        chaostoolkit-aws \
+        chaostoolkit-azure \
+        chaostoolkit-kubernetes \
+        chaostoolkit-google-cloud-platform \
+        chaostoolkit-humio \
+        chaostoolkit-prometheus \
+        chaostoolkit-toxiproxy \
+        chaostoolkit-opentracing \
+        chaostoolkit-istio \
+        chaostoolkit-wiremock \
+        chaostoolkit-gandi \
+        chaostoolkit-dynatrace \
+        chaostoolkit-k6 \
+        chaostoolkit-addons \
+        chaostoolkit-grafana \
+        chaostoolkit-slack \
+        opentelemetry-api \
+        opentelemetry-sdk \
+        opentelemetry-exporter-otlp-proto-http \
+        opentelemetry-propagator-b3 \
+        opentelemetry-semantic-conventions
+    
+    - name: Run Reliably Experiment
+      shell: bash
+      run: |
+        env
+        chaos run --rollback-strategy=always ${{ inputs.reliably-experiment-url }}
+      env:
+        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
