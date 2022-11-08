@@ -5,15 +5,16 @@ branding:
   icon: "check-circle"
   color: "red"
 inputs:
-  experiment-url:
-    description: "Chaos Toolkit experiment URL"
-    required: true
   reliably-agent-token:
     description: "Reliably agent authentication token"
     required: true
   reliably-experiment-url:
     description: "Reliably experiment url"
     required: true
+  python-version:
+    description: "The python version to use to run the Chaos Toolkit"
+    required: false
+    default: "3.10"
 runs:
   using: "composite"
   steps:
@@ -51,7 +52,7 @@ runs:
     - name: Run Reliably Experiment
       shell: bash
       run: |
-        env
+        echo "Running experiment ${{ inputs.reliably-experiment-url }}"
         chaos run --rollback-strategy=always ${{ inputs.reliably-experiment-url }}
       env:
         CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
