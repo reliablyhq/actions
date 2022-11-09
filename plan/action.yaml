@@ -51,3 +51,10 @@ runs:
         opentelemetry-exporter-otlp-proto-http \
         opentelemetry-propagator-b3 \
         opentelemetry-semantic-conventions
+
+    - name: Add repository top-level ./bin directory to the PATH
+      shell: bash
+      run: |
+        if [[ -d "./bin" ]]; then
+          echo "PATH=$PATH:./bin" >> $GITHUB_ENV
+        fi
