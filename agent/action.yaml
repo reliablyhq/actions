@@ -4,6 +4,9 @@ branding:
   icon: "check-circle"
   color: "red"
 inputs:
+  github-token:
+    description: "A GitHub token suitable to trigger the workflow"
+    required: true
   python-version:
     description: "Which Python version to use (should be 3.10+)"
     required: false
@@ -34,6 +37,5 @@ runs:
         shell: bash
         run: |
           reliably agent
-
-          # give time for OTEL to be sent if declared
-          sleep 1s
+        env:
+          GITHUB_TOKEN: ${{ inputs.github-token }}
