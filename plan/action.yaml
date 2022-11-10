@@ -29,28 +29,30 @@ runs:
     
     - name: Install Chaos Toolkit
       shell: bash
-      run: python -m pip install -q --prefer-binary wheel chaostoolkit \
-        chaostoolkit-aws \
-        chaostoolkit-azure \
-        chaostoolkit-kubernetes \
-        chaostoolkit-google-cloud-platform \
-        chaostoolkit-humio \
-        chaostoolkit-prometheus \
-        chaostoolkit-toxiproxy \
-        chaostoolkit-opentracing \
-        chaostoolkit-istio \
-        chaostoolkit-wiremock \
-        chaostoolkit-gandi \
-        chaostoolkit-dynatrace \
-        chaostoolkit-k6 \
-        chaostoolkit-addons \
-        chaostoolkit-grafana \
-        chaostoolkit-slack \
-        opentelemetry-api \
-        opentelemetry-sdk \
-        opentelemetry-exporter-otlp-proto-http \
-        opentelemetry-propagator-b3 \
-        opentelemetry-semantic-conventions
+      run: |
+        python -m pip install -q --prefer-binary -U wheel setuptools pip
+        python -m pip install -q --prefer-binary chaostoolkit \
+          chaostoolkit-aws \
+          chaostoolkit-azure \
+          chaostoolkit-kubernetes \
+          chaostoolkit-google-cloud-platform \
+          chaostoolkit-humio \
+          chaostoolkit-prometheus \
+          chaostoolkit-toxiproxy \
+          chaostoolkit-opentracing \
+          chaostoolkit-istio \
+          chaostoolkit-wiremock \
+          chaostoolkit-gandi \
+          chaostoolkit-dynatrace \
+          chaostoolkit-k6 \
+          chaostoolkit-addons \
+          chaostoolkit-grafana \
+          chaostoolkit-slack \
+          opentelemetry-api \
+          opentelemetry-sdk \
+          opentelemetry-exporter-otlp-proto-http \
+          opentelemetry-propagator-b3 \
+          opentelemetry-semantic-conventions
 
     - name: Add repository top-level ./bin directory to the PATH
       shell: bash
