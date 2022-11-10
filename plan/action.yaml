@@ -48,7 +48,7 @@ runs:
           chaostoolkit-addons \
           chaostoolkit-grafana \
           chaostoolkit-slack \
-          git+https://github.com/chaostoolkit-incubator/chaostoolkit-reliably@master#chaostoolkit-reliably
+          git+https://github.com/chaostoolkit-incubator/chaostoolkit-reliably@master#chaostoolkit-reliably \
           opentelemetry-api \
           opentelemetry-sdk \
           opentelemetry-exporter-otlp-proto-http \
