@@ -71,8 +71,8 @@ runs:
       shell: bash
       run: |
         echo "Loading ${{ inputs.working-dir }}/.reliably.env into GITHUB_ENV"
-        if [[ -f "${{ inputs.working-dir }}/.reliably.env" ]]; then
-          input="${{ inputs.working-dir }}/.reliably.env"
+        cd ${{ inputs.working-dir }}
+        if [[ -f "./.reliably.env" ]]; then
           while IFS= read -r line
           do
             echo "$line" >> $GITHUB_ENV
