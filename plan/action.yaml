@@ -75,6 +75,7 @@ runs:
         if [[ -f "./.reliably.env" ]]; then
           while IFS= read -r line
           do
-            [[ $line != ^#+ ]] && echo "$line" >> $GITHUB_ENV
+            [[ $line =~ ^#.* ]] && continue
+            echo "$line" >> $GITHUB_ENV
           done < "./.reliably.env"
         fi
