@@ -18,6 +18,10 @@ inputs:
   environment-name:
     description: "Name of a GitHub environment to populate secrets from"
     required: false
+  working-dir:
+    description: "The directory where the plan will be run from"
+    required: false
+    default: "~"
 runs:
   using: "composite"
   steps:
@@ -55,9 +59,23 @@ runs:
           opentelemetry-propagator-b3 \
           opentelemetry-semantic-conventions
 
-    - name: Add repository top-level ./bin directory to the PATH
+    - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
       run: |
-        if [[ -d "./bin" ]]; then
-          echo "PATH=$PATH:./bin" >> $GITHUB_ENV
+        if [[ -d "~/bin" ]]; then
+          echo "Adding ~/bin to PATH"
+          echo "PATH=$PATH:~/bin" >> $GITHUB_ENV
+        fi
+
+    - name: Inject Reliably environment variables, if any, into workflow
+      working-directory: ${{ inputs.working-dir }}
+      shell: bash
+      run: |
+        echo "Loading ./.reliably.env into GITHUB_ENV"
+        if [[ -d "./.reliably.env" ]]; then
+          input="./.reliably.env"
+          while IFS= read -r line
+          do
+            echo "$line" >> $GITHUB_ENV
+          done < "./.reliably.env"
         fi
