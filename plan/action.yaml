@@ -68,12 +68,11 @@ runs:
         fi
 
     - name: Inject Reliably environment variables, if any, into workflow
-      working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
-        echo "Loading `pwd`/.reliably.env into GITHUB_ENV"
-        if [[ -d "./.reliably.env" ]]; then
-          input="./.reliably.env"
+        echo "Loading ${{ inputs.working-dir }}/.reliably.env into GITHUB_ENV"
+        if [[ -f "${{ inputs.working-dir }}/.reliably.env" ]]; then
+          input="${{ inputs.working-dir }}/.reliably.env"
           while IFS= read -r line
           do
             echo "$line" >> $GITHUB_ENV
