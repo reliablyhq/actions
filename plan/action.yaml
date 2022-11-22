@@ -21,7 +21,7 @@ inputs:
   working-dir:
     description: "The directory where the plan will be run from"
     required: false
-    default: "~"
+    default: ""
 runs:
   using: "composite"
   steps:
@@ -71,7 +71,7 @@ runs:
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
-        echo "Loading ./.reliably.env into GITHUB_ENV"
+        echo "Loading `pwd`/.reliably.env into GITHUB_ENV"
         if [[ -d "./.reliably.env" ]]; then
           input="./.reliably.env"
           while IFS= read -r line
