@@ -11,10 +11,20 @@ inputs:
   reliably-agent-token:
     description: "Reliably agent authentication token"
     required: true
+  working-dir:
+    description: "The directory where the plan will be run from"
+    required: true
+  experiment-url:
+    description: "The full URL to the experiment"
+    required: true
   python-version:
     description: "The python version to use to run the Chaos Toolkit"
     required: false
     default: "3.10"
+  reliably-host:
+    description: "The hostname of the Reliably server"
+    required: false
+    default: "app.reliably.com"
 runs:
   using: "composite"
   steps:
@@ -74,17 +84,18 @@ runs:
         fi
 
     - name: Execute Reliably Experiment
-      working-directory: ${{ env.BASE_DIR }}
+      working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
         [[ -f "./.reliably.env" ]] && source ./.reliably.env
-        chaos run --rollback-strategy=always ${{ env.EXPERIMENT_URL }}
+        chaos run --rollback-strategy=always ${{ inputs.experiment-url }}
       env:
         CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
         RELIABLY_TOKEN: ${{ inputs.reliably-agent-token }}
+        RELIABLY_HOST: ${{ inputs.reliably-host }}
 
     - name: Store results
-      working-directory: ${{ env.BASE_DIR }}
+      working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
         export EXECUTION_URL=$(cat journal.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
