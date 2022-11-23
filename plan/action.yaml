@@ -5,23 +5,16 @@ branding:
   icon: "check-circle"
   color: "red"
 inputs:
+  github-token:
+    description: "The GitHub token to commit the results"
+    required: true
   reliably-agent-token:
     description: "Reliably agent authentication token"
-    required: true
-  reliably-experiment-url:
-    description: "Reliably experiment url"
     required: true
   python-version:
     description: "The python version to use to run the Chaos Toolkit"
     required: false
     default: "3.10"
-  environment-name:
-    description: "Name of a GitHub environment to populate secrets from"
-    required: false
-  working-dir:
-    description: "The directory where the plan will be run from"
-    required: false
-    default: ""
 runs:
   using: "composite"
   steps:
@@ -79,3 +72,29 @@ runs:
             echo "$line" >> $GITHUB_ENV
           done < "./.reliably.env"
         fi
+
+    - name: Execute Reliably Experiment
+      working-directory: ${{ env.BASE_DIR }}
+      shell: bash
+      run: |
+        [[ -f "./.reliably.env" ]] && source ./.reliably.env
+        chaos run --rollback-strategy=always ${{ env.EXPERIMENT_URL }}
+      env:
+        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
+        RELIABLY_TOKEN: ${{ inputs.reliably-agent-token }}
+
+    - name: Store results
+      working-directory: ${{ env.BASE_DIR }}
+      shell: bash
+      run: |
+        export EXECUTION_URL=$(cat journal.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
+
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add .
+        git commit -s -m "Plan ${{ env.PLAN_ID }}" -m "Visit ${EXECUTION_URL}"
+        git pull --rebase origin main
+        git push
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GITHUB_ACTOR: ${{ github.actor }}
