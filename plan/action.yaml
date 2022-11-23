@@ -70,6 +70,10 @@ runs:
           echo "PATH=$PATH:~/bin" >> $GITHUB_ENV
         fi
 
+    - name: Create directory to hold results and logs
+      shell: bash
+      run: mkdir -p ${{ inputs.working-dir }}
+
     - name: Inject Reliably environment variables, if any, into workflow
       shell: bash
       run: |
