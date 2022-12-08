@@ -20,6 +20,9 @@ inputs:
   plan-id:
     description: "The identifier of the executed plan"
     required: true
+  reliably-experiment-extra:
+    description: "A json encoded object to be added to the result of the run"
+    required: false
   python-version:
     description: "The python version to use to run the Chaos Toolkit"
     required: false
@@ -94,6 +97,7 @@ runs:
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
+        echo 'RELIABLY_EXECUTION_EXTRA=${{ inputs.reliably-experiment-extra }}' >> $GITHUB_ENV
         [[ -f "./.reliably.env" ]] && source ./.reliably.env
         chaos run --rollback-strategy=always ${{ inputs.experiment-url }}
       env:
