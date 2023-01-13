@@ -106,6 +106,7 @@ runs:
         RELIABLY_HOST: ${{ inputs.reliably-host }}
 
     - name: Store results
+      if: success() || failure()
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
