@@ -44,7 +44,7 @@ runs:
       shell: bash
       run: |
         python -m pip install -q --prefer-binary -U wheel setuptools pip
-        python -m pip install -q --prefer-binary chaostoolkit \
+        python -m pip install -q --prefer-binary -U chaostoolkit \
           chaostoolkit-aws \
           chaostoolkit-azure \
           chaostoolkit-kubernetes \
@@ -61,12 +61,17 @@ runs:
           chaostoolkit-addons \
           chaostoolkit-grafana \
           chaostoolkit-slack \
-          git+https://github.com/chaostoolkit-incubator/chaostoolkit-reliably@master#chaostoolkit-reliably \
+          chaostoolkit-reliably \
           opentelemetry-api \
           opentelemetry-sdk \
+          opentelemetry-instrumentation-httpx \
+          opentelemetry-instrumentation-logging \
           opentelemetry-exporter-otlp-proto-http \
+          opentelemetry-opentracing-shim \
           opentelemetry-propagator-b3 \
-          opentelemetry-semantic-conventions
+          opentelemetry-semantic-conventions \
+          httpx[http2]
+
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
