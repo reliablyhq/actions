@@ -94,7 +94,7 @@ runs:
       shell: bash
       run: |
         echo 'RELIABLY_EXECUTION_EXTRA=${{ inputs.reliably-experiment-extra }}' >> $GITHUB_ENV
-        reliably services plan execute ${{ inputs.plan_id }} --log-file run.log --result-file run.json
+        reliably service plan execute ${{ inputs.plan_id }} --log-file run.log --result-file run.json
       env:
         CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
         RELIABLY_TOKEN: ${{ inputs.reliably-agent-token }}
