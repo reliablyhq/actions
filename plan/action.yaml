@@ -10,7 +10,10 @@ inputs:
     required: true
   reliably-agent-token:
     description: "Reliably agent authentication token"
-    required: true
+    required: false
+  reliably-service-token:
+    description: "Reliably service (user) authentication token"
+    required: false
   working-dir:
     description: "The directory where the plan will be run from"
     required: true
@@ -99,10 +102,9 @@ runs:
         echo 'RELIABLY_EXECUTION_EXTRA=${{ inputs.reliably-experiment-extra }}' >> $GITHUB_ENV
         reliably service plan execute ${{ inputs.plan-id }} --log-file run.log --result-file run.json
       env:
-        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
-        RELIABLY_TOKEN: ${{ inputs.reliably-agent-token }}
-        RELIABLY_HOST: ${{ inputs.reliably-host }}
-        RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
+        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ secrets.RELIABLY_SERVICE_TOKEN }}
+        RELIABLY_TOKEN: ${{ secrets.RELIABLY_SERVICE_TOKEN }}
+        RELIABLY_AGENT_TOKEN: ${{ secrets.RELIABLY_AGENT_TOKEN }}
         RELIABLY_ORGANIZATION_ID: ${{ inputs.org-id }}
 
     - name: Store results
