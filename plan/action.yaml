@@ -24,7 +24,7 @@ inputs:
     description: "A json encoded object to be added to the result of the run"
     required: false
   python-version:
-    description: "The python version to use to run the Chaos Toolkit"
+    description: "The python version to use"
     required: false
     default: "3.10"
   reliably-host:
@@ -70,7 +70,11 @@ runs:
           opentelemetry-opentracing-shim \
           opentelemetry-propagator-b3 \
           opentelemetry-semantic-conventions \
+          opentelemetry-exporter-gcp-trace \
+          opentelemetry-resourcedetector-gcp \
+          opentelemetry-propagator-gcp \
           httpx[http2]
+        python -m pip install -q --prefer-binary -U reliably-cli
 
 
     - name: Add repository top-level ~/bin directory to the PATH
@@ -85,26 +89,12 @@ runs:
       shell: bash
       run: mkdir -p ${{ inputs.working-dir }}
 
-    - name: Inject Reliably environment variables, if any, into workflow
-      shell: bash
-      run: |
-        echo "Loading ${{ inputs.working-dir }}/.reliably.env into GITHUB_ENV"
-        cd ${{ inputs.working-dir }}
-        if [[ -f "./.reliably.env" ]]; then
-          while IFS= read -r line
-          do
-            [[ $line =~ ^#.* ]] && continue
-            echo "$line" >> $GITHUB_ENV
-          done < "./.reliably.env"
-        fi
-
-    - name: Execute Reliably Experiment
+    - name: Run
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
         echo 'RELIABLY_EXECUTION_EXTRA=${{ inputs.reliably-experiment-extra }}' >> $GITHUB_ENV
-        [[ -f "./.reliably.env" ]] && source ./.reliably.env
-        chaos run --rollback-strategy=always ${{ inputs.experiment-url }}
+        reliably services plan execute ${{ inputs.plan_id }} --log-file run.log --result-file run.json
       env:
         CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-agent-token }}
         RELIABLY_TOKEN: ${{ inputs.reliably-agent-token }}
@@ -115,7 +105,7 @@ runs:
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       run: |
-        export EXECUTION_URL=$(cat journal.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
+        export EXECUTION_URL=$(cat run.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
 
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
@@ -126,3 +116,5 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
         GITHUB_ACTOR: ${{ github.actor }}
+
+
