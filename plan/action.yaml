@@ -13,7 +13,7 @@ inputs:
     required: false
   reliably-service-token:
     description: "Reliably service (user) authentication token"
-    required: false
+    required: true
   working-dir:
     description: "The directory where the plan will be run from"
     required: true
