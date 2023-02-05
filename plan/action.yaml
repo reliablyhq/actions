@@ -121,6 +121,7 @@ runs:
         RELIABLY_ORGANIZATION_ID: ${{ inputs.org-id }}
         RELIABLY_HOST: ${{ inputs.reliably-host }}
         RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
+        RELIABLY_PLAN_ID: $ {{ inputs.plan-id }}
 
     - name: Store results
       if: success() || failure()
