@@ -119,9 +119,6 @@ runs:
     - name: Run
       working-directory: ${{ inputs.working-dir }}
       shell: bash
-      run: |
-        echo 'RELIABLY_EXECUTION_EXTRA=${{ inputs.reliably-experiment-extra }}' >> $GITHUB_ENV
-        reliably service plan execute --log-file run.log --result-file run.json ${{ inputs.plan-id }}
       env:
         CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-service-token }}
         RELIABLY_TOKEN: ${{ inputs.reliably-service-token }}
@@ -131,6 +128,9 @@ runs:
         RELIABLY_HOST: ${{ inputs.reliably-host }}
         RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
+        RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
+      run: |
+        reliably service plan execute --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
     - name: Store results
       if: success() || failure()
