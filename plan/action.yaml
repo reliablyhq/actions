@@ -37,6 +37,9 @@ inputs:
     description: "The hostname of the Reliably server"
     required: false
     default: "app.reliably.com"
+  env_vars:
+    description: List of environment variables to pass to the execution in env=value format.
+    required: false
 runs:
   using: "composite"
   steps:
@@ -94,6 +97,15 @@ runs:
     - name: Create directory to hold results and logs
       shell: bash
       run: mkdir -p ${{ inputs.working-dir }}
+
+    - name: Feed environment variables from caller to current context
+      shell: bash
+      if: ${{ inputs.env_vars }}
+      run: |
+        for i in "${{ inputs.env_vars }}"
+        do
+          printf "%s\n" $i >> $GITHUB_ENV
+        done
 
     - name: Run
       working-directory: ${{ inputs.working-dir }}
