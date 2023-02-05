@@ -43,6 +43,15 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Notify running status
+      shell: bash
+      run: |
+        curl -s --http2 -X PUT \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
+          -d '{"status":"running"}' \
+          https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
+      
     - name: Configure Python
       uses: actions/setup-python@v4
       with:
@@ -121,7 +130,7 @@ runs:
         RELIABLY_ORGANIZATION_ID: ${{ inputs.org-id }}
         RELIABLY_HOST: ${{ inputs.reliably-host }}
         RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
-        RELIABLY_PLAN_ID: $ {{ inputs.plan-id }}
+        RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
 
     - name: Store results
       if: success() || failure()
