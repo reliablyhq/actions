@@ -56,7 +56,6 @@ runs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python-version }}
-        cache: 'pip'
     
     - name: Install Chaos Toolkit
       shell: bash
@@ -106,15 +105,6 @@ runs:
     - name: Create directory to hold results and logs
       shell: bash
       run: mkdir -p ${{ inputs.working-dir }}
-
-    - name: Feed environment variables from caller to current context
-      shell: bash
-      if: ${{ inputs.env_vars }}
-      run: |
-        for i in "${{ inputs.env_vars }}"
-        do
-          printf "%s\n" $i >> $GITHUB_ENV
-        done
 
     - name: Run
       working-directory: ${{ inputs.working-dir }}
