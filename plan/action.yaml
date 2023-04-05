@@ -61,7 +61,7 @@ runs:
       uses: pdm-project/setup-pdm@v3
       with:
         python-version: ${{ inputs.python-version }}
-        cache: true
+        cache: false
         prerelease: true
     
     - name: Create directory to hold results and logs
