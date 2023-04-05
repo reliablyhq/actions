@@ -96,6 +96,7 @@ runs:
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
         pdm use .venv
+        pdm list
         reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
     - name: Store results
