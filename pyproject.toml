@@ -1,0 +1,52 @@
+[project]
+name = "reliablyghactions"
+version = "0.1.0"
+description = "Dependencies to install as part of the Reliably GitHub actions workflows"
+authors = [
+    {name = "Reliably", email = "contact@reliably.com"},
+]
+dependencies = [
+    "chaostoolkit-aws>=0.21.3",
+    "chaostoolkit-azure>=0.11.1",
+    "chaostoolkit-kubernetes>=0.26.4",
+    "chaostoolkit-google-cloud-platform>=0.8.2",
+    "chaostoolkit-humio>=0.6.0",
+    "chaostoolkit-prometheus>=0.5.0",
+    "chaostoolkit-toxiproxy>=0.3.1",
+    "chaostoolkit-opentracing>=0.9.1",
+    "chaostoolkit-istio>=0.3.0",
+    "chaostoolkit-wiremock>=0.1.2",
+    "chaostoolkit-gandi>=0.2.0",
+    "chaostoolkit-dynatrace>=0.2.0",
+    "chaostoolkit-k6>=0.3.4",
+    "chaostoolkit-addons>=0.8.5",
+    "chaostoolkit-grafana>=0.2.0",
+    "chaostoolkit-slack>=0.5.7",
+    "chaostoolkit-reliably>=0.43.2",
+    "opentelemetry-api>=1.17.0",
+    "opentelemetry-sdk>=1.17.0",
+    "opentelemetry-instrumentation-httpx>=0.38b0",
+    "opentelemetry-instrumentation-logging>=0.38b0",
+    "opentelemetry-exporter-otlp-proto-http>=1.17.0",
+    "opentelemetry-opentracing-shim>=0.38b0",
+    "opentelemetry-propagator-b3>=1.17.0",
+    "opentelemetry-semantic-conventions>=0.38b0",
+    "opentelemetry-exporter-gcp-trace>=1.4.0",
+    "opentelemetry-resourcedetector-gcp>=1.4.0a0",
+    "opentelemetry-propagator-gcp>=1.4.0",
+    "httpx[http2]>=0.23.3",
+    "jsonpath2>=0.4.5",
+    "chaostoolkit-datadog>=0.1.1",
+    "aws-az-failure-chaostoolkit>=0.1.9",
+    "reliably-cli>=0.5.42",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool]
+[tool.pdm]
