@@ -83,7 +83,7 @@ runs:
         pdm sync --no-editable --no-self
 
         # to authenticate to AWS EKS clusters
-        curl -Lo $HOME/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
+        curl -s -Lo $HOME/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
         chmod +x $HOME/bin/aws-iam-authenticator
 
     - name: Run
@@ -97,6 +97,7 @@ runs:
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
+        pdm info
         reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
         echo "PLAN_STATUS=finished" >> $GITHUB_ENV
 
