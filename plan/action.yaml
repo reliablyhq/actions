@@ -81,6 +81,7 @@ runs:
       run: |
         curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
         pdm sync --no-editable --no-self
+        pdm info
 
         # to authenticate to AWS EKS clusters
         curl -s -Lo $HOME/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
@@ -97,8 +98,6 @@ runs:
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
-        pdm info
-        ls -la $GITHUB_WORKSPACE/.venv/bin/
         $GITHUB_WORKSPACE/.venv/bin/reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
         echo "PLAN_STATUS=finished" >> $GITHUB_ENV
 
@@ -109,9 +108,10 @@ runs:
       run: |
         export EXECUTION_URL=$(cat run.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
 
+        pdm list --markdown > dependencies.md
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git add .
+        git add run.log run.json dependencies.md
         git commit -s -m "Plan ${{ inputs.plan-id }} execution" -m "Visit ${EXECUTION_URL}"
         git pull --rebase origin main
         git push
