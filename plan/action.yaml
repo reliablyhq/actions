@@ -67,6 +67,7 @@ runs:
     - name: Install Dependencies
       shell: bash
       run: |
+        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
         pdm venv create
         pdm use .venv
         pdm sync -v --no-editable --no-self
