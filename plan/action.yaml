@@ -52,6 +52,11 @@ runs:
           -d '{"status":"running"}' \
           https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
 
+    - name: Fetch Dependencies Lock
+      shell: bash
+      run: |
+        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pdm.lock
+
     - name: Set up PDM
       uses: pdm-project/setup-pdm@v3
       with:
@@ -59,10 +64,9 @@ runs:
         cache: true
         prerelease: true
     
-    - name: Install Chaos Toolkit
+    - name: Install Dependencies
       shell: bash
       run: |
-        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pdm.lock
         pdm venv create
         pdm use .venv
         pdm install --no-editable --no-self
