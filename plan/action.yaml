@@ -70,7 +70,7 @@ runs:
         curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
         pdm venv create
         pdm use .venv
-        pdm sync -v --no-editable --no-self
+        pdm sync --no-editable --no-self
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
