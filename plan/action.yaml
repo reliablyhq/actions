@@ -51,6 +51,7 @@ runs:
           -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
           -d '{"status":"running"}' \
           https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
+        echo "PLAN_STATUS=running" >> $GITHUB_ENV
 
     - name: Fetch Dependencies Lock
       shell: bash
@@ -97,6 +98,7 @@ runs:
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
         reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
+        echo "PLAN_STATUS=finished" >> $GITHUB_ENV
 
     - name: Store results
       if: success() || failure()
@@ -115,4 +117,15 @@ runs:
         GITHUB_TOKEN: ${{ inputs.github-token }}
         GITHUB_ACTOR: ${{ github.actor }}
 
-
+    - name: Update Plan Status
+      if: failure()
+      shell: bash
+      run: |
+        # in case the build failed before the reliably cli got executed
+        if [[ "$PLAN_STATUS" == "running" ]]; then
+          curl -s --http2 -X PUT \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
+            -d '{"status":"error", "error": "Workflow failed"}' \
+            https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
+        fi
