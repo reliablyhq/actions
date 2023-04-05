@@ -80,8 +80,6 @@ runs:
       shell: bash
       run: |
         curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
-        pdm venv create
-        $(pdm venv activate)
         pdm sync --no-editable --no-self
 
         # to authenticate to AWS EKS clusters
@@ -99,7 +97,6 @@ runs:
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
-        $(pdm venv activate)
         reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
     - name: Store results
