@@ -71,6 +71,7 @@ runs:
         pdm venv create
         pdm use .venv
         pdm sync --no-editable --no-self
+        pdm list
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
@@ -96,8 +97,7 @@ runs:
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
         pdm use .venv
-        pdm list
-        reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
+        ./.venv/bin/reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
     - name: Store results
       if: success() || failure()
