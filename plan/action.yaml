@@ -64,14 +64,9 @@ runs:
         cache: true
         prerelease: true
     
-    - name: Install Dependencies
+    - name: Create directory to hold results and logs
       shell: bash
-      run: |
-        curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
-        pdm venv create
-        pdm use .venv
-        pdm sync --no-editable --no-self
-        pdm list
+      run: mkdir -p ${{ inputs.working-dir }}
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
@@ -81,9 +76,18 @@ runs:
           echo "PATH=$PATH:~/bin" >> $GITHUB_ENV
         fi
 
-    - name: Create directory to hold results and logs
+    - name: Install Dependencies
       shell: bash
-      run: mkdir -p ${{ inputs.working-dir }}
+      run: |
+        curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
+        pdm venv create
+        pdm use .venv
+        pdm sync --no-editable --no-self
+        pdm list
+
+        # to authenticate to AWS EKS clusters
+        curl -Lo ~/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
+        chmod +x ~/bin/aws-iam-authenticator
 
     - name: Run
       working-directory: ${{ inputs.working-dir }}
@@ -96,7 +100,6 @@ runs:
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
-        pdm venv list
         $(pdm venv activate)
         reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
