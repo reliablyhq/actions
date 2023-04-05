@@ -71,10 +71,9 @@ runs:
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
       run: |
-        if [[ -d "~/bin" ]]; then
-          echo "Adding ~/bin to PATH"
-          echo "PATH=$PATH:~/bin" >> $GITHUB_ENV
-        fi
+        mkdir -p $HOME/bin
+        echo "Adding $HOME/bin to PATH"
+        echo "PATH=$PATH:$HOME/bin" >> $GITHUB_ENV
 
     - name: Install Dependencies
       shell: bash
@@ -83,8 +82,8 @@ runs:
         pdm sync --no-editable --no-self
 
         # to authenticate to AWS EKS clusters
-        curl -Lo ~/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
-        chmod +x ~/bin/aws-iam-authenticator
+        curl -Lo $HOME/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.6.2/aws-iam-authenticator_0.6.2_linux_amd64
+        chmod +x $HOME/bin/aws-iam-authenticator
 
     - name: Run
       working-directory: ${{ inputs.working-dir }}
