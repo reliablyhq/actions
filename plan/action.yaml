@@ -32,7 +32,7 @@ inputs:
   python-version:
     description: "The python version to use"
     required: false
-    default: "3.10"
+    default: "3.11"
   reliably-host:
     description: "The hostname of the Reliably server"
     required: false
@@ -51,48 +51,21 @@ runs:
           -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
           -d '{"status":"running"}' \
           https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
-      
-    - name: Configure Python
-      uses: actions/setup-python@v4
+
+    - name: Set up PDM
+      uses: pdm-project/setup-pdm@v3
       with:
         python-version: ${{ inputs.python-version }}
+        cache: true
+        prerelease: true
     
     - name: Install Chaos Toolkit
       shell: bash
       run: |
-        python -m pip install -q --prefer-binary -U wheel setuptools pip
-        python -m pip install -q --prefer-binary -U chaostoolkit \
-          chaostoolkit-aws \
-          chaostoolkit-azure \
-          chaostoolkit-kubernetes \
-          chaostoolkit-google-cloud-platform \
-          chaostoolkit-humio \
-          chaostoolkit-prometheus \
-          chaostoolkit-toxiproxy \
-          chaostoolkit-opentracing \
-          chaostoolkit-istio \
-          chaostoolkit-wiremock \
-          chaostoolkit-gandi \
-          chaostoolkit-dynatrace \
-          chaostoolkit-k6 \
-          chaostoolkit-addons \
-          chaostoolkit-grafana \
-          chaostoolkit-slack \
-          chaostoolkit-reliably \
-          opentelemetry-api \
-          opentelemetry-sdk \
-          opentelemetry-instrumentation-httpx \
-          opentelemetry-instrumentation-logging \
-          opentelemetry-exporter-otlp-proto-http \
-          opentelemetry-opentracing-shim \
-          opentelemetry-propagator-b3 \
-          opentelemetry-semantic-conventions \
-          opentelemetry-exporter-gcp-trace \
-          opentelemetry-resourcedetector-gcp \
-          opentelemetry-propagator-gcp \
-          httpx[http2]
-        python -m pip install -q --prefer-binary -U reliably-cli
-
+        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pdm.lock
+        pdm venv create
+        pdm use .venv
+        pdm install --no-editable --no-self
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
@@ -110,17 +83,14 @@ runs:
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       env:
-        CHAOSTOOLKIT_LOADER_AUTH_BEARER_TOKEN: ${{ inputs.reliably-service-token }}
-        RELIABLY_TOKEN: ${{ inputs.reliably-service-token }}
         RELIABLY_AGENT_TOKEN: ${{ inputs.reliably-agent-token }}
         RELIABLY_SERVICE_TOKEN: ${{ inputs.reliably-service-token }}
         RELIABLY_ORGANIZATION_ID: ${{ inputs.org-id }}
-        RELIABLY_HOST: ${{ inputs.reliably-host }}
         RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
-        reliably service plan execute --log-file run.log --result-file run.json ${{ inputs.plan-id }}
+        reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
 
     - name: Store results
       if: success() || failure()
