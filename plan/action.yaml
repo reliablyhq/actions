@@ -69,7 +69,7 @@ runs:
       run: |
         pdm venv create
         pdm use .venv
-        pdm sync --no-editable --no-self
+        pdm sync -v --no-editable --no-self
 
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
