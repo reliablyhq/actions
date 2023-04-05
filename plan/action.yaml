@@ -55,7 +55,7 @@ runs:
     - name: Fetch Dependencies Lock
       shell: bash
       run: |
-        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pdm.lock
+        curl -o pdm.lock --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pdm.lock
 
     - name: Set up PDM
       uses: pdm-project/setup-pdm@v3
@@ -67,7 +67,7 @@ runs:
     - name: Install Dependencies
       shell: bash
       run: |
-        curl -o pdm.lock https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
+        curl -o pyproject.toml --silent https://raw.githubusercontent.com/reliablyhq/actions/main/pyproject.toml
         pdm venv create
         pdm use .venv
         pdm sync -v --no-editable --no-self
