@@ -108,7 +108,7 @@ runs:
       run: |
         export EXECUTION_URL=$(cat run.json | jq -r '.experiment.extensions[] | select(.name=="reliably") | .execution_url')
 
-        pdm list --markdown > dependencies.md
+        pdm list --fields name,version,homepage > dependencies.md
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         git add run.log run.json dependencies.md
