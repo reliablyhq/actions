@@ -98,7 +98,8 @@ runs:
         RELIABLY_EXECUTION_EXTRA: ${{ inputs.reliably-experiment-extra }}
       run: |
         pdm info
-        reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
+        ls -la /home/runner/work/ctkgh/ctkgh/.venv/bin/
+        ./.venv/bin/reliably service plan execute --log-stdout --log-file run.log --result-file run.json ${{ inputs.plan-id }}
         echo "PLAN_STATUS=finished" >> $GITHUB_ENV
 
     - name: Store results
