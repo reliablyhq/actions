@@ -14,6 +14,7 @@ inputs:
   working-dir:
     description: "The directory where the plan will be run from"
     required: true
+    default: "./plans"
   plan-id:
     description: "The identifier of the executed plan"
     required: true

@@ -80,7 +80,7 @@ These are passed to the action using `with`.
 | reliably-host | "app.reliably.com" | The Reliably host. Only useful if you run Reliably on your own host |
 | org-id | | Reliably organization identifier for this run |
 | plan-id | | Reliably plan identifier for this run |
-| working-dir | | Repository relative directory where to run the plan from |
+| working-dir | "./plans" | Repository relative directory where to run the plan from |
 | reliably-experiment-extra | | A JSOn encoded object loaded by reliably to add to the results |
 
 
