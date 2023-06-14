@@ -69,6 +69,34 @@ Store this as a workflow called `reliably-plan.yaml`.
 
 [More information](https://reliably.com/docs/deployment/#github-1)
 
+The Reliably Plan Action has properties which are passed to the underlying script.
+These are passed to the action using `with`.
+
+| Property | Default | Description |
+| --- | --- | --- |
+| python-version | "3.11" | Run Reliably using this version of Python (3.11+) |
+| github-token | | GitHub token with enough permissions to commit to the repository. Usually set it with `${{ secrets.GITHUB_TOKEN }}` |
+| reliably-service-token | | Reliably token to authenticate with Reliably services. Usually set it with `${{ secrets.RELIABLY_SERVICE_TOKEN }}` |
+| reliably-host | "app.reliably.com" | The Reliably host. Only useful if you run Reliably on your own host |
+| org-id | | Reliably organization identifier for this run |
+| plan-id | | Reliably plan identifier for this run |
+| working-dir | | Repository relative directory where to run the plan from |
+| reliably-experiment-extra | | A JSOn encoded object loaded by reliably to add to the results |
+
+
+### Various notes
+
+* The action automatically installs the Reliably CLI and many
+  [Chaos Toolkit extensions](ctk) for you
+* If you create a `bin` directory at the top of your repository, the
+  action will automatically add it to the `PATH` if your plan requires access
+  to specific utilities.
+* The action downloads and provided the `aws-iam-authenticator` binary for you
+  so you can authenticate against AWS EKS clusters
+
+
+[ctk]: https://github.com/reliablyhq/actions/blob/main/pyproject.toml#L8
+
 ## Setup
 
 This action is useful when you want to install the Reliably CLI and call one
