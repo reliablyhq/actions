@@ -1,18 +1,11 @@
-name: Run the Reliably Plan in your workflow every minute
+name: Execute a Reliably Plan
+
 on:
   workflow_dispatch:
-    inputs:
-      experiment-url:
-        description: "Reliably experiment URL"
-        required: true
 
 jobs:
-  setup-reliably:
+  execute-reliably-plan:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-      - name: Run a Reliably Plan
-        uses: reliablyhq/actions/plan@v1
-        with:
-          experiment-url: ${{ inputs.experiment-url }}
+    - uses: actions/checkout@v3
+    - uses: reliablyhq/actions/plan@main

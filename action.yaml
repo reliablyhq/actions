@@ -9,14 +9,6 @@ inputs:
     description: "Which Python version to use (should be 3.10+)"
     required: false
     default: '3.10'
-  reliably-version:
-    description: "Which Reliably version to install"
-    required: false
-    default: 0.1.6
-  reliably-config-path:
-    description: "Path where to locate a Reliably configuration file"
-    required: false
-    default: .reliably.toml
 runs:
   using: "composite"
   steps:
