@@ -28,13 +28,9 @@ This action requires the following:
 * A token. You can generate one from the [Reliably dashboard](token) then
   store it as an Environment secret in your GitHub repository under the name
   `RELIABLY_SERVICE_TOKEN`
-* An organization identifier. You can find them on your
-  [Reliably profile page](profile). Then store this value as an Environment
-  secret in your GitHub repository under the name `RELIABLY_ORGANIZATION_ID`
 
 [reliably]: https://reliably.com
 [token]: https://app.reliably.com/settings/tokens/
-[profile]: https://app.reliably.com/settings/profile/
 
 
 # Actions

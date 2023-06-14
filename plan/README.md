@@ -26,7 +26,8 @@ These are passed to the action using `with`.
 | Property | Default | Description |
 | --- | --- | --- |
 | python-version | "3.11" | Run Reliably using this version of Python (3.11+) |
-| reliably-service-token | | Reliably token to authenticate with Reliably services |
+| github-token | | GitHub token with enough permissions to commit to the repository. Usually set it with `${{ secrets.GITHUB_TOKEN }}` |
+| reliably-service-token | | Reliably token to authenticate with Reliably services. Usually set it with `${{ secrets.RELIABLY_SERVICE_TOKEN }}` |
 | reliably-host | "app.reliably.com" | The Reliably host. Only useful if you run Reliably on your own host |
 | org-id | | Reliably organization identifier for this run |
 | plan-id | | Reliably plan identifier for this run |
