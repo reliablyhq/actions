@@ -1713,7 +1713,7 @@ summary = "Alternative regular expression module, to replace re."
 
 [[package]]
 name = "reliably-cli"
-version = "0.8.0"
+version = "0.8.1"
 requires_python = ">=3.10"
 summary = "Reliably CLI"
 dependencies = [
@@ -3933,9 +3933,9 @@ content_hash = "sha256:156e6747c6e0ca9a8fbfc7199ad4b1358baf527b7acbfa962b422a279
     {url = "https://files.pythonhosted.org/packages/f8/bc/01e6a5597904147d13c1a6dc16ec334b73cddb190b6b8f05fca2c0bfbe89/regex-2023.6.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:9edcbad1f8a407e450fbac88d89e04e0b99a08473f666a3f3de0fd292badb6aa"},
     {url = "https://files.pythonhosted.org/packages/f9/a5/703d590158a252b3e96332d7a420669b0395b7b98a2b34395af1f4f8f95f/regex-2023.6.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0b49c764f88a79160fa64f9a7b425620e87c9f46095ef9c9920542ab2495c8bc"},
 ]
-"reliably-cli 0.8.0" = [
-    {url = "https://files.pythonhosted.org/packages/3e/f4/4aa41fde45fc08189fa19dffc39544308dd9f948585fa44a3d850fd9c6c3/reliably_cli-0.8.0-py3-none-any.whl", hash = "sha256:0884df0b6bb8104b8cba0dd6ad2c121b13427905251ff9b115c001ea53e36f95"},
-    {url = "https://files.pythonhosted.org/packages/5c/f2/a3aed8f4d5985029fc2cfa208fbc5900bf1a46fa2bd7f0e0536b5fb11882/reliably_cli-0.8.0.tar.gz", hash = "sha256:f4e6e2d2a74270deca5dc3997f8ee66e53b58e198c800430a2986d1d7cd22562"},
+"reliably-cli 0.8.1" = [
+    {url = "https://files.pythonhosted.org/packages/08/a8/d33c9b0664313e5dc73be7965bff0553af6e3aaabd251e6bcf4ad91cf542/reliably_cli-0.8.1.tar.gz", hash = "sha256:669c649c812d52ed1f74e921f825ef741950c6b9f91f5b9fa5a4e159daef5067"},
+    {url = "https://files.pythonhosted.org/packages/73/a5/8845ab65dddfaccf5a49a41562c86de7773af935952abd7789b3b3fbd5fd/reliably_cli-0.8.1-py3-none-any.whl", hash = "sha256:7605f6b1a5f93e375433b44a8050d1acd4d78251d3e2c2f9c99a914d609427ba"},
 ]
 "requests 2.31.0" = [
     {url = "https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl", hash = "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f"},
