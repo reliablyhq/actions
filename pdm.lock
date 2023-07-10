@@ -122,7 +122,7 @@ summary = "Microsoft Azure Client Library for Python (Common)"
 
 [[package]]
 name = "azure-core"
-version = "1.27.1"
+version = "1.28.0"
 requires_python = ">=3.7"
 summary = "Microsoft Azure Core Library for Python"
 dependencies = [
@@ -484,7 +484,7 @@ dependencies = [
 
 [[package]]
 name = "chaostoolkit-lib"
-version = "1.36.0"
+version = "1.36.1"
 requires_python = ">=3.7"
 summary = "Chaos Toolkit core library"
 dependencies = [
@@ -2188,9 +2188,9 @@ content_hash = "sha256:156e6747c6e0ca9a8fbfc7199ad4b1358baf527b7acbfa962b422a279
     {url = "https://files.pythonhosted.org/packages/3e/71/f6f71a276e2e69264a97ad39ef850dca0a04fce67b12570730cb38d0ccac/azure-common-1.1.28.zip", hash = "sha256:4ac0cd3214e36b6a1b6a442686722a5d8cc449603aa833f3f0f40bda836704a3"},
     {url = "https://files.pythonhosted.org/packages/62/55/7f118b9c1b23ec15ca05d15a578d8207aa1706bc6f7c87218efffbbf875d/azure_common-1.1.28-py2.py3-none-any.whl", hash = "sha256:5c12d3dcf4ec20599ca6b0d3e09e86e146353d443e7fcc050c9a19c1f9df20ad"},
 ]
-"azure-core 1.27.1" = [
-    {url = "https://files.pythonhosted.org/packages/31/5c/9da79ae1d12571a0e268f0b813d9d19e9419339f7fbe2232b556937b4358/azure-core-1.27.1.zip", hash = "sha256:5975c20808fa388243f01a8b79021bfbe114f503a27c543f002c5fc8bbdd73dd"},
-    {url = "https://files.pythonhosted.org/packages/71/fa/b6f8f8693de85c69f70ad3b0320a35b663ef1110d32ee2c1064d3dacb0f4/azure_core-1.27.1-py3-none-any.whl", hash = "sha256:1b4b19f455eb7b4332c6f92adc2c669353ded07c2722eb436165f0c253737792"},
+"azure-core 1.28.0" = [
+    {url = "https://files.pythonhosted.org/packages/c3/0a/32b17d776a6bf5ddaa9dbad0e88de9d28a55bec1d37b8d408cc7d2e5e28d/azure_core-1.28.0-py3-none-any.whl", hash = "sha256:dec36dfc8eb0b052a853f30c07437effec2f9e3e1fc8f703d9bdaa5cfc0043d9"},
+    {url = "https://files.pythonhosted.org/packages/fd/51/0ee0a2844712f54117b3ee4853c3d209ba37641f0c587be22a993990989e/azure-core-1.28.0.zip", hash = "sha256:e9eefc66fc1fde56dab6f04d4e5d12c60754d5a9fa49bdcfd8534fc96ed936bd"},
 ]
 "azure-identity 1.13.0" = [
     {url = "https://files.pythonhosted.org/packages/33/16/fa96a5e057d6842e95d94fc410896e061b3d3a2584d57e13fc58268df45f/azure_identity-1.13.0-py3-none-any.whl", hash = "sha256:bd700cebb80cd9862098587c29d8677e819beca33c62568ced6d5a8e5e332b82"},
@@ -2466,9 +2466,9 @@ content_hash = "sha256:156e6747c6e0ca9a8fbfc7199ad4b1358baf527b7acbfa962b422a279
     {url = "https://files.pythonhosted.org/packages/73/38/061241b7b2d6ea004474ea65772d9f1057f59bc8e805735ed71068960833/chaostoolkit-kubernetes-0.28.0.tar.gz", hash = "sha256:e9fab6ba59c73456575370294789bb444a315b61789aaf4e11b7adc23ca73764"},
     {url = "https://files.pythonhosted.org/packages/e3/e8/6a371b0c9c0f8fab0d3393ca809ac7b4a305d379502ef06e317579354861/chaostoolkit_kubernetes-0.28.0-py3-none-any.whl", hash = "sha256:1dd5067188ae3d3b380aee6759f6a5f308209ad27d3d5e06ddae1b07634eef9e"},
 ]
-"chaostoolkit-lib 1.36.0" = [
-    {url = "https://files.pythonhosted.org/packages/d2/c3/6214e49cca66d69b529d55e0852fe8ffdd31a778d5b53bb68255273155f8/chaostoolkit_lib-1.36.0-py2.py3-none-any.whl", hash = "sha256:b04a65f36c8ad820ad526aa125ba10f1574152ff142ecd71cc4710bb57178e21"},
-    {url = "https://files.pythonhosted.org/packages/d5/fc/a04dbefb6000c07177db39b5ad842e17d50ce58ebd5746e9e9997dfed7ed/chaostoolkit-lib-1.36.0.tar.gz", hash = "sha256:057d20dbac20824b977833f2bf2d0d34bf1c823c7c93f1ad2e8b2f8c5f2d8a02"},
+"chaostoolkit-lib 1.36.1" = [
+    {url = "https://files.pythonhosted.org/packages/23/f4/94c7fefe40bc3810cb351d312ff122fde7fe13ea8911de42d57e81bca87d/chaostoolkit_lib-1.36.1-py2.py3-none-any.whl", hash = "sha256:a488deed8c56f883ad6007e82475528bcfea309f5bede8e412da0b329fa1e16d"},
+    {url = "https://files.pythonhosted.org/packages/83/3d/5206b0108511e832932c4cb7a5c450b1b7dfd9575df83482b123c9a49c83/chaostoolkit-lib-1.36.1.tar.gz", hash = "sha256:02e1a8afc6320bcb52791cc82ffba50c4db9c8c6e740af57afc0a5bb3a641070"},
 ]
 "chaostoolkit-opentracing 0.10.0" = [
     {url = "https://files.pythonhosted.org/packages/0b/65/c57393fb2e7d1ab9b25cdba5acfd7b2dac8ae1c622eb244b541ea4c7b19a/chaostoolkit_opentracing-0.10.0-py3-none-any.whl", hash = "sha256:479148450d59673b7135d35deade71d887af881e828c6722972363bc1c284b6a"},
