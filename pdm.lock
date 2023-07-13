@@ -1739,7 +1739,7 @@ summary = "Alternative regular expression module, to replace re."
 
 [[package]]
 name = "reliably-cli"
-version = "0.10.0"
+version = "0.13.1"
 requires_python = ">=3.10"
 summary = "Reliably CLI"
 dependencies = [
@@ -4008,8 +4008,8 @@ content_hash = "sha256:156e6747c6e0ca9a8fbfc7199ad4b1358baf527b7acbfa962b422a279
     {url = "https://files.pythonhosted.org/packages/f8/bc/01e6a5597904147d13c1a6dc16ec334b73cddb190b6b8f05fca2c0bfbe89/regex-2023.6.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:9edcbad1f8a407e450fbac88d89e04e0b99a08473f666a3f3de0fd292badb6aa"},
     {url = "https://files.pythonhosted.org/packages/f9/a5/703d590158a252b3e96332d7a420669b0395b7b98a2b34395af1f4f8f95f/regex-2023.6.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0b49c764f88a79160fa64f9a7b425620e87c9f46095ef9c9920542ab2495c8bc"},
 ]
-"reliably-cli 0.10.0" = [
-    {url = "https://files.pythonhosted.org/packages/d8/8b/eb43d6fe5b3c56c93e82fbd671802f237533bc5aafe063ed97db08d3ba35/reliably_cli-0.10.0-py3-none-any.whl", hash = "sha256:6ebaf644a412c9534e4a58b79c13b8d5d44cb2a957cbf54c261c2c0328f4a824"},
+"reliably-cli 0.13.1" = [
+    {url = "https://files.pythonhosted.org/packages/69/b4/6647c6751e48d681a6797bb6c5d96b19403d4e3e107b5679e683188c26bc/reliably_cli-0.13.1-py3-none-any.whl", hash = "sha256:ea8befcf0de18145dc462ae902ce4550bb16688edbe5bd83b358e8140316fc5a"},
 ]
 "requests 2.31.0" = [
     {url = "https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl", hash = "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f"},
