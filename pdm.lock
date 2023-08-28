@@ -430,22 +430,22 @@ files = [
 
 [[package]]
 name = "boto3"
-version = "1.28.33"
+version = "1.28.35"
 requires_python = ">= 3.7"
 summary = "The AWS SDK for Python"
 dependencies = [
-    "botocore<1.32.0,>=1.31.33",
+    "botocore<1.32.0,>=1.31.35",
     "jmespath<2.0.0,>=0.7.1",
     "s3transfer<0.7.0,>=0.6.0",
 ]
 files = [
-    {file = "boto3-1.28.33-py3-none-any.whl", hash = "sha256:07997e299e7b87afbbb25dc9de677017eafbd96b4f1b81e931d5127716dc6dd1"},
-    {file = "boto3-1.28.33.tar.gz", hash = "sha256:fafc0eda7ebe7878be2ab934558ea1776cbd1bd624ce9e9b827e304d301ccd00"},
+    {file = "boto3-1.28.35-py3-none-any.whl", hash = "sha256:d77415f22bbc14f3d72eaed2fc9f96d161f3ba7686922ad26d6bbc9d4985f3df"},
+    {file = "boto3-1.28.35.tar.gz", hash = "sha256:580b584e36967155abed7cc9b088b3bd784e8242ae4d8841f58cb50ab05520dc"},
 ]
 
 [[package]]
 name = "botocore"
-version = "1.31.33"
+version = "1.31.35"
 requires_python = ">= 3.7"
 summary = "Low-level, data-driven core of boto 3."
 dependencies = [
@@ -454,8 +454,8 @@ dependencies = [
     "urllib3<1.27,>=1.25.4",
 ]
 files = [
-    {file = "botocore-1.31.33-py3-none-any.whl", hash = "sha256:1b76549c45f712ca9734888e60a2ab9c857e6e6025b156b36c344162a7e9d0dc"},
-    {file = "botocore-1.31.33.tar.gz", hash = "sha256:3fd7cb89cf834b28bc7e8427cb29bb861b10652a3bebe9d0d18d9a2c1e4f3f67"},
+    {file = "botocore-1.31.35-py3-none-any.whl", hash = "sha256:943e1465aad66db4933b06809134bd08c5b05e8eb18c19742ffec82f54769457"},
+    {file = "botocore-1.31.35.tar.gz", hash = "sha256:7e4534325262f43293a9cc9937cb3f1711365244ffde8b925a6ee862bcf30a83"},
 ]
 
 [[package]]
@@ -1218,7 +1218,7 @@ files = [
 
 [[package]]
 name = "geventhttpclient"
-version = "2.0.9"
+version = "2.0.10"
 summary = "http client library for gevent"
 dependencies = [
     "brotli",
@@ -1227,48 +1227,66 @@ dependencies = [
     "six",
 ]
 files = [
-    {file = "geventhttpclient-2.0.9-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:f4dcd420c74f68ffc493abdc0964583f762e0f03c9ccd62b8dcfa589f8cabe49"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:5fe8766994434ed6dc807d2e5726e9cec536b5593885b50598fe763908242054"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c23aacbe40f767d4bfb4215b51302d68f9611f2e730521e65c7239854177c30f"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9f9ead0e6eb8302b394744c8ad7df71b1482e40402ecc208b446dba870bbafa1"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:15393cf588d24bf90b430299733ed161829065d14df99db250b40a83ec7978aa"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:41b35daa9fe8217f295bc162492260daf4d4e1d9e3e8ed1fa2085a003cb5bb86"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0373b1d920cb2c1d65913258e2abe1534f5c6d1e687ed9322ad47858d75fd7d0"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:344f22ce6cc959e67c32c9992422ee623b2e92da80b7774f939a03a8f66a823b"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:2f467fc073631dd7c13f289ab59e82ae9b181a1faabcc8b23be48a48e8e45ba9"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-musllinux_1_1_ppc64le.whl", hash = "sha256:9f1395906e79b7d3db97199625ae9050c1249e2cb8073bb32495c375af351849"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:3c8f035c55f8db9b3a976d813dd20965ecf957e268e420e66b88cba81a66f3ac"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-win32.whl", hash = "sha256:372776cdcad9a34a8635da4002f1614a36269ee02e968750c4fbde6ea83360d7"},
-    {file = "geventhttpclient-2.0.9-cp310-cp310-win_amd64.whl", hash = "sha256:9a11b88ce228f91bd47acacb573acbcdf8276b933e2fd7e4f7aa6259c279271e"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:273cde2893c13cbdfcad46e6a0fb906aa3f6b050e712cba0e46cfa59aca4c330"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:ba0f8863526a2cf44567fda5981da90278583d3006aef02482a92b7d7e38e610"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:f8da5696d055883cef55fe52246ea2a686bae865d4d38900f67c7c3df7d01eaa"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e25e14c91898217f3a69346c2704e4629634b3429cdff226e716e6d830c402e1"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:46b08a7de94a3db62ebeb41e68097db1e3836eef2e2febccb2d710add8943838"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d0e33f23168824338a84e05e47808a48895e78e77c5d2ec353a6e77a0b727057"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f505a7060aeafd7ed94acc8c234690717ed03aa6421580847ade8d4a6d8741c1"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:bc0cd15d51b5817efeef98d6ffe51bebd371c0c81731b239d0c6e81923c3b986"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:9a7e72d38e3a4d4f84c11dbfd74b70e70c3c9099ea7336a6c6227e0628c83a67"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-musllinux_1_1_ppc64le.whl", hash = "sha256:62edef5141ea260caa91618b133d8888d9af6767e11a2e972dbb5be0e297ff8e"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:40cc9acfb7096b8fa3a4c4634dcc0a1cfc6a0a5501c597d1c4a5574fde1bb1be"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-win32.whl", hash = "sha256:44e7de9925356486988f72b239d1608597b6d1462664a7fa7ad5b8704a3f6f4e"},
-    {file = "geventhttpclient-2.0.9-cp311-cp311-win_amd64.whl", hash = "sha256:03b3c64fcd16795a5acbdf8588e05a58fde498cd550285cf3ea6e1c6cc28378c"},
-    {file = "geventhttpclient-2.0.9-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:3fca4415c9d9282a8b5f4de03661be3b1083b97b3e43a1f4b56cec4b933b9705"},
-    {file = "geventhttpclient-2.0.9-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3b85ca16b34170787a48ac2c69622bba2f2a3541ee55b442576a12f63181f13e"},
-    {file = "geventhttpclient-2.0.9-pp37-pypy37_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:711f3522ce20d2de5abe22cafdeee0896f9f682de7690622510c5f8a859c50d2"},
-    {file = "geventhttpclient-2.0.9-pp37-pypy37_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:96479cafe8cca4e24a1ba53efe3c3c6cf9f10e8cb0398f4cbcf23b4233e103f2"},
-    {file = "geventhttpclient-2.0.9-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:d742f4288844ec5dbed2af4396fca8d37b5f4d2730ca31fe3575d67a2910e28f"},
-    {file = "geventhttpclient-2.0.9-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "sha256:53e929c7920fb7841d4b2cde50ed3fdde803948977a333de33a924a9ccfccd38"},
-    {file = "geventhttpclient-2.0.9-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f4693365990aa6d5cb104cea80dd831b8032f6a4f77790fa8b837fc25e86f8e5"},
-    {file = "geventhttpclient-2.0.9-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:99bb292a4f4fa4a23d22e6bf1799530d0cb675dae87d81d77079abe98f71150d"},
-    {file = "geventhttpclient-2.0.9-pp38-pypy38_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4533b7023a90cb9766213f70d15bc76bb66b7b441c3976f27e254403a6c738fa"},
-    {file = "geventhttpclient-2.0.9-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:a9b6341c937d01ba48028a3d605fded6fd2eed692bb1ddc941d2aa3dd317eed9"},
-    {file = "geventhttpclient-2.0.9-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:a05a3345796accd0a9acb3fc133a0e4cd949d3e63becec34fcb2e8d001dd92fe"},
-    {file = "geventhttpclient-2.0.9-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:32cc9bd3518aa0772065175aa6eddadff8b05688683940bfd583cb468b518987"},
-    {file = "geventhttpclient-2.0.9-pp39-pypy39_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0e7185e91b52f6d2cdab849ba24c8ac24b3bd1ad8eb9917e4ed86f4e93f718b1"},
-    {file = "geventhttpclient-2.0.9-pp39-pypy39_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:62a47451abf94422b3f0efda4f147111f2f4a75f7e55db974cf4b35acaee0131"},
-    {file = "geventhttpclient-2.0.9-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:dc75486b0847c185856f981b728a2bbfe09e8a754676e57a8549660157918d2f"},
-    {file = "geventhttpclient-2.0.9.tar.gz", hash = "sha256:8abc39d346e923bd6a7b405d38dd01e19146594b6304032f382eda8b0f631513"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7c2ba6814f4a31286573f7fd24154bdb9cbe4ae01e754f48d71b1944798bf663"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c01dfb0de68f219b7a534121caa71481e32574bba7fe547fa37ee47a73a7b224"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:1b2c7e6bb15910a2e86f8da375adfd63ac07587a1c764cedc082b00390bcd76e"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:022801e2323e3e673e3c7034f6bc5440b4651649df03396eb1b3a86a6aba899d"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:bcfc1489e71b010d8ce8857578cdb1b8ba348626807aa9d077fc73c9864e51e1"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:aef527f67653488000218283368e526fa699604e03e98ce4e0e588e89116977d"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0a673a4b6b1839c8491372e43208912040c25a34254c60bf1d084489ddc300ee"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:2ceae04de8bdb4ef1d0ca7724cd9cad77c6611aac3830a24a7f13747e8b748c7"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-musllinux_1_1_i686.whl", hash = "sha256:dc3effc56065a5c26292ca26127e6fdd0f68429b413e847a8b7bad38972aab53"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-musllinux_1_1_ppc64le.whl", hash = "sha256:304c1d24d33b19cae53614ffc91c68d1e682d8b60a4d9eefcf87fcd099b1c2f2"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:d39b468aba4dbec358eb0205d41791afc53651eee789566239e544ed6c8b7dbb"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-win32.whl", hash = "sha256:91cd3f680ee413cc83819f0e1f63e49297c550099e85bbee92e73960d3eba041"},
+    {file = "geventhttpclient-2.0.10-cp310-cp310-win_amd64.whl", hash = "sha256:9a9c02c44b1e4e6edf929aa7c98b665f4db9cdcd406e4a9b4897f48127a6dd6b"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:cb079f45fdc8e2bf7157ef55727d8c2bb7c95fb4f754dac61d7a9b91da0c5c1a"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:bd657ba277f4888b5a4b5da72a587641d6725d1e6ab0dd6875f29ad0a3458ad5"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:fd589226e908a6c2556572ff3b13fe00308849b44dec47bb794de27afa0339de"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5e38a4123ed63935ccaf18054135e50fe4f798744f10d37faa9d2eaddfcff12f"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:9711c629559b1f0be4977a2be79899fb90085a5a1f85ca435ec91d6a5648ff3f"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7435458eada516d1caf8499a2618db1160e62bbe0c8e4d6f3ab03fc507587dff"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:446b17f342315d8c63c020732b9ab939a874014c84cf250d66ffd96c877f6d96"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:68279ab30e20f48fbac4371cd5850c77ecc37f24ef656f8c37afd5454576bc57"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:0823827d029aed708d6ed577994cdd3b4c1466690be0b7f27f3b459783ab7c6a"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-musllinux_1_1_ppc64le.whl", hash = "sha256:505722ef30d680c983812795e047dbb2d09dc0f476015e5d3411251bb960e3b1"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:8ebf2ce3ca1308ffc9daae1f45860b2f5a3c1a75f6c46b2d12b9a478f7c4f05e"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-win32.whl", hash = "sha256:4ad20f6f03e34e44366e6794a28bd0b35b09e1dca3350bbf0a72c50d64c9c266"},
+    {file = "geventhttpclient-2.0.10-cp311-cp311-win_amd64.whl", hash = "sha256:c1883adee9c69374e30f43f7bea85dd4a7b4cc440e3c6ecf975bef04e1f8a972"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:7525bd48fadc93a79d13383cf38a10eed6c9f2f3c65e1f3a8cd4978dfcf023a0"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:c6820591122c4444652238806c0c97f6c0de76d790bab255fd242962c8026654"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:34a06879a2dbc2a78edf8cfcabbcc67a177d0642b0e4490b771b72ebceea4537"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:441a16eb8743b44c7b6f0acbbdc38d6f407f0763eb859ae0ae6e61427ac86c3e"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:cdf3a7a5c6b244c6d55de9d28245f70ee33cca8353355a9b10ea0c2e08ff24a0"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1e65a91c7a4e559d0f60dab4439d15355ade9c30f5c73276bb748b000a062e8f"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d051f15c3c92140ce142336ae05a76868ce05a86b4e15c5becb5431beaf53a07"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:224d1f34e32d683889f8a92f92ce3a1e4bb2f3f4a3d85b931a8df493dd59e9e7"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-musllinux_1_1_i686.whl", hash = "sha256:309a35f033766476765a48a9c2712ffb988c3e3d50cd4b98eaa77e34b470af7e"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-musllinux_1_1_ppc64le.whl", hash = "sha256:d9d09579969cfb244e88bb599ac93549d8c0b56018de1f1ffade4a986951ad1d"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:15ecc1599646755d7e2e5648606c21ace00c3337c2d72d33b4e2de5d66b4ed65"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-win32.whl", hash = "sha256:c99dd907622f28523c3f90b8718643c103ce6519be7128e75730c398fd23d157"},
+    {file = "geventhttpclient-2.0.10-cp312-cp312-win_amd64.whl", hash = "sha256:9532ee9066072737fe0eac1714c99792d7007769d529a056bc0c238946f67fdf"},
+    {file = "geventhttpclient-2.0.10-pp310-pypy310_pp73-macosx_10_9_x86_64.whl", hash = "sha256:71a224032b2da3fe30d75fb57fb9d3e8ff323895e14facd9374e585d5bf52d01"},
+    {file = "geventhttpclient-2.0.10-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bed5b6051582bdf39c7ff15051ec0758d1a0ebcb6ff09b6ae600717caf3f379e"},
+    {file = "geventhttpclient-2.0.10-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7e2e2eed1d821854f9f32f475d258af605a87ce12dc4d93abe61c022bf2bb06e"},
+    {file = "geventhttpclient-2.0.10-pp310-pypy310_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f2cd1ecc9a389ca54a5e538769c3f35a82478006dc50eb505989d2ff6c3cf518"},
+    {file = "geventhttpclient-2.0.10-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:fb7018bfd4f6808d4e3b9cdda2dcb52cc01236a4bb65e18021fb8816996e9cd3"},
+    {file = "geventhttpclient-2.0.10-pp37-pypy37_pp73-macosx_10_9_x86_64.whl", hash = "sha256:6df4957678eb05a6ccfbbb96a9490345758620b53fe5653052979df94819765b"},
+    {file = "geventhttpclient-2.0.10-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:508bcc82f7259e316f2060025e7ff899acc8032c645e765bb780083e39060c07"},
+    {file = "geventhttpclient-2.0.10-pp37-pypy37_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:961dac20f0f4b8cfa4e2eaafe2d20d74448a5a04239135fa1867a9a1bc3fd986"},
+    {file = "geventhttpclient-2.0.10-pp37-pypy37_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:826fa6487ba1c1b7186dcdc300c216fd9b8cf34e307335b4cad1769736988ce9"},
+    {file = "geventhttpclient-2.0.10-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:b30c9495b43b2f67b6a0102ee3fd497762b6bf972e435e5974fd8d2cb5263235"},
+    {file = "geventhttpclient-2.0.10-pp38-pypy38_pp73-macosx_10_9_x86_64.whl", hash = "sha256:e2a9a5e52abc8d3275902c1199ff810264b033e346bcf19da920f9b6de1ea916"},
+    {file = "geventhttpclient-2.0.10-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:993b653c7c3d4e0683067b2e324fd749649e87b453205def6a4809dd30498b44"},
+    {file = "geventhttpclient-2.0.10-pp38-pypy38_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6aa110a66936c37a8bbc2a51515fc0f7e99404e245ef15af8346fa2f6b4f6698"},
+    {file = "geventhttpclient-2.0.10-pp38-pypy38_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6ce4699fcadc17786cba0b461ff59d0231277155439b274fa12861f93fa764c8"},
+    {file = "geventhttpclient-2.0.10-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:23fedc0bf219cc42f9b3d565953a08a429c09642859b86174535977bb281f1c1"},
+    {file = "geventhttpclient-2.0.10-pp39-pypy39_pp73-macosx_10_9_x86_64.whl", hash = "sha256:a9e99fa203a43a8393cf01e5a6433e74524c97bf67e39c4f062c8fff27f49360"},
+    {file = "geventhttpclient-2.0.10-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0dfcfdc3a05e2145fe15f8b9cc7dd8b9fcd545dd42d051be0a2a828b8b3cc4a3"},
+    {file = "geventhttpclient-2.0.10-pp39-pypy39_pp73-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:b56abccfea3fe154f29dbc518737c70d63c1f44da4c956e31e9a5ff65074de19"},
+    {file = "geventhttpclient-2.0.10-pp39-pypy39_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d9f8d335e7e3579608904e001ba9b055d3f30b184db550c32901b3b86af71b92"},
+    {file = "geventhttpclient-2.0.10-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:96f1a63f18eb4a66ea9d6ab211d756afe8b6d5c6e80beff298cd7b65a3d710c7"},
+    {file = "geventhttpclient-2.0.10.tar.gz", hash = "sha256:b7c97b26511957a36a894ec54651c08890a69e118b69755f8e74bfc37c63391b"},
 ]
 
 [[package]]
@@ -2642,17 +2660,17 @@ files = [
 
 [[package]]
 name = "protobuf"
-version = "4.24.1"
+version = "4.24.2"
 requires_python = ">=3.7"
 summary = ""
 files = [
-    {file = "protobuf-4.24.1-cp310-abi3-win32.whl", hash = "sha256:d414199ca605eeb498adc4d2ba82aedc0379dca4a7c364ff9bc9a179aa28e71b"},
-    {file = "protobuf-4.24.1-cp310-abi3-win_amd64.whl", hash = "sha256:5906c5e79ff50fe38b2d49d37db5874e3c8010826f2362f79996d83128a8ed9b"},
-    {file = "protobuf-4.24.1-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:970c701ee16788d74f3de20938520d7a0aebc7e4fff37096a48804c80d2908cf"},
-    {file = "protobuf-4.24.1-cp37-abi3-manylinux2014_aarch64.whl", hash = "sha256:fc361148e902949dcb953bbcb148c99fe8f8854291ad01107e4120361849fd0e"},
-    {file = "protobuf-4.24.1-cp37-abi3-manylinux2014_x86_64.whl", hash = "sha256:5d32363d14aca6e5c9e9d5918ad8fb65b091b6df66740ae9de50ac3916055e43"},
-    {file = "protobuf-4.24.1-py3-none-any.whl", hash = "sha256:55dd644adc27d2a624339332755fe077c7f26971045b469ebb9732a69ce1f2ca"},
-    {file = "protobuf-4.24.1.tar.gz", hash = "sha256:44837a5ed9c9418ad5d502f89f28ba102e9cd172b6668bc813f21716f9273348"},
+    {file = "protobuf-4.24.2-cp310-abi3-win32.whl", hash = "sha256:58e12d2c1aa428ece2281cef09bbaa6938b083bcda606db3da4e02e991a0d924"},
+    {file = "protobuf-4.24.2-cp310-abi3-win_amd64.whl", hash = "sha256:77700b55ba41144fc64828e02afb41901b42497b8217b558e4a001f18a85f2e3"},
+    {file = "protobuf-4.24.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:237b9a50bd3b7307d0d834c1b0eb1a6cd47d3f4c2da840802cd03ea288ae8880"},
+    {file = "protobuf-4.24.2-cp37-abi3-manylinux2014_aarch64.whl", hash = "sha256:25ae91d21e3ce8d874211110c2f7edd6384816fb44e06b2867afe35139e1fd1c"},
+    {file = "protobuf-4.24.2-cp37-abi3-manylinux2014_x86_64.whl", hash = "sha256:c00c3c7eb9ad3833806e21e86dca448f46035242a680f81c3fe068ff65e79c74"},
+    {file = "protobuf-4.24.2-py3-none-any.whl", hash = "sha256:3b7b170d3491ceed33f723bbf2d5a260f8a4e23843799a3906f16ef736ef251e"},
+    {file = "protobuf-4.24.2.tar.gz", hash = "sha256:7fda70797ddec31ddfa3576cbdcc3ddbb6b3078b737a1a87ab9136af0570cd6e"},
 ]
 
 [[package]]
