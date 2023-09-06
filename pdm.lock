@@ -3084,7 +3084,7 @@ files = [
 
 [[package]]
 name = "reliably-cli"
-version = "0.17.0"
+version = "0.18.0"
 requires_python = ">=3.10"
 summary = "Reliably CLI"
 dependencies = [
@@ -3103,7 +3103,7 @@ dependencies = [
     "typer>=0.6.1",
 ]
 files = [
-    {file = "reliably_cli-0.17.0-py3-none-any.whl", hash = "sha256:d149d113f652394547abb66ac946cdf1e415cd036a721fbf6258ca2409dfa9b1"},
+    {file = "reliably_cli-0.18.0-py3-none-any.whl", hash = "sha256:3d7335443748df6cc01743897e39e18563f413ed754fd462328700ee8906e227"},
 ]
 
 [[package]]
