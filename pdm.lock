@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform"]
 lock_version = "4.4"
-content_hash = "sha256:156e6747c6e0ca9a8fbfc7199ad4b1358baf527b7acbfa962b422a279f3db92a"
+content_hash = "sha256:1c40ce256e2407f3613a3e9d0a44edfe7f8c06370184c0e39065cf6a505773a0"
 
 [[package]]
 name = "adal"
@@ -715,6 +715,20 @@ dependencies = [
 files = [
     {file = "chaostoolkit-grafana-0.2.0.tar.gz", hash = "sha256:578ff9cfc5870cfc3dd31f5f718c4e7ba01ab695a9c259afe1e6e76ae2f0c1b5"},
     {file = "chaostoolkit_grafana-0.2.0-py2.py3-none-any.whl", hash = "sha256:d2242a9f01d96991f7a9d9054003d26380cad7099e9a277b5a8ed8eb5e3218a6"},
+]
+
+[[package]]
+name = "chaostoolkit-honeycomb"
+version = "0.6.2"
+requires_python = ">=3.7"
+summary = "Chaos Toolkit extension for Honeycomb"
+dependencies = [
+    "chaostoolkit-lib>=1.37",
+    "httpx[http2]>=0.24.1",
+]
+files = [
+    {file = "chaostoolkit_honeycomb-0.6.2-py3-none-any.whl", hash = "sha256:91101413e6c1cf956a56712374144a65fbd653ac5735e0763b73d41ccc2666cb"},
+    {file = "chaostoolkit_honeycomb-0.6.2.tar.gz", hash = "sha256:74542cd65f287d0e8736b56f4b89e45b872884d8869790dc73caa39557e0d71b"},
 ]
 
 [[package]]

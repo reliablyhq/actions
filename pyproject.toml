@@ -39,6 +39,7 @@ dependencies = [
     "chaostoolkit-datadog>=0.1.1",
     "aws-az-failure-chaostoolkit>=0.1.9",
     "reliably-cli>=0.5.42",
+    "chaostoolkit-honeycomb>=0.6.2",
 ]
 requires-python = ">=3.10"
 readme = "README.md"
@@ -48,5 +49,3 @@ license = {text = "Apache-2.0"}
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-[tool]
-[tool.pdm]
