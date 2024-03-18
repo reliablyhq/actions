@@ -8,6 +8,9 @@ inputs:
   github-token:
     description: "The GitHub token to commit the results"
     required: true
+  reliably-service-token:
+    description: "Reliably service (user) authentication token"
+    required: true
   working-dir:
     description: "The directory where the plan will be run from"
     required: true
@@ -29,11 +32,6 @@ inputs:
     description: "The hostname of the Reliably server"
     required: false
     default: "app.reliably.com"
-secrets:
-  reliably-service-token:
-    description: "Reliably service (user) authentication token"
-    required: true
-
 runs:
   using: "composite"
   steps:
@@ -42,7 +40,7 @@ runs:
       run: |
         curl -s --http2 -X PUT \
           -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.reliably-service-token }}" \
+          -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
           -d '{"status":"running"}' \
           https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
         echo "PLAN_STATUS=running" >> $GITHUB_ENV
@@ -85,7 +83,7 @@ runs:
       working-directory: ${{ inputs.working-dir }}
       shell: bash
       env:
-        RELIABLY_SERVICE_TOKEN: ${{ secrets.reliably-service-token }}
+        RELIABLY_SERVICE_TOKEN: ${{ inputs.reliably-service-token }}
         RELIABLY_ORGANIZATION_ID: ${{ inputs.org-id }}
         RELIABLY_SERVICE_HOST: https://${{ inputs.reliably-host }}
         RELIABLY_PLAN_ID: ${{ inputs.plan-id }}
@@ -120,7 +118,7 @@ runs:
         if [[ "$PLAN_STATUS" == "running" ]]; then
           curl -s --http2 -X PUT \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.reliably-service-token }}" \
+            -H "Authorization: Bearer ${{ inputs.reliably-service-token }}" \
             -d '{"status":"error", "error": "Workflow failed"}' \
             https://${{ inputs.reliably-host }}/api/v1/organization/${{ inputs.org-id }}/plans/${{ inputs.plan-id }}/status
         fi
