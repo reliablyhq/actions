@@ -65,7 +65,6 @@ runs:
       shell: bash
       run: |
         echo "PATH=$PATH:$GITHUB_WORKSPACE/bin" >> $GITHUB_ENV
-        ls -la $GITHUB_WORKSPACE/bin
 
     - name: Install Dependencies
       shell: bash
