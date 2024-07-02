@@ -67,7 +67,7 @@ runs:
         mkdir -p $HOME/bin
         echo "Adding $HOME/bin to PATH"
         echo "PATH=$PATH:$HOME/bin" >> $GITHUB_ENV
-        ls -la $PATH
+        ls -la $HOME/bin
 
     - name: Install Dependencies
       shell: bash
