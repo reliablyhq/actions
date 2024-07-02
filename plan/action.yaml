@@ -64,10 +64,8 @@ runs:
     - name: Add repository top-level ~/bin directory to the PATH
       shell: bash
       run: |
-        mkdir -p $HOME/bin
-        echo "Adding $HOME/bin to PATH"
-        echo "PATH=$PATH:$HOME/bin" >> $GITHUB_ENV
-        ls -la $HOME/bin
+        echo "PATH=$PATH:$GITHUB_WORKSPACE/bin" >> $GITHUB_ENV
+        ls -la $GITHUB_WORKSPACE/bin
 
     - name: Install Dependencies
       shell: bash
